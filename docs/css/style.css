@@ -1518,6 +1518,18 @@ img {
     width: 100%;
 }
 
+#aa-property-header1 {
+    background-image: url("../img/img-fondos/costela.jpeg");
+    background-attachment: fixed;
+    background-position: center center;
+    background-size: cover;
+    display: inline;
+    float: left;
+    position: relative;
+    min-height: 400px;
+    width: 100%;
+}
+
 #aa-property-header::before {
     background-color: rgba(0, 0, 0, 0.4);
     bottom: 0;
