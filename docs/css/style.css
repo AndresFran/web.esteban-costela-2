@@ -3214,7 +3214,7 @@ img {
 @media (max-width: 767px) {
     .navbar-collapse.in {
         overflow-x: hidden;
-        background-color: #ddd;
+        background-color: rgb(126, 150, 230);
     }
     .container>.navbar-header,
     .container-fluid>.navbar-header,
