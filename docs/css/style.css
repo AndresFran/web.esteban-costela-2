@@ -3755,3 +3755,79 @@ img {
 .my-float {
     margin-top: 16px;
 }
+
+
+/* Agrega esto a tu CSS existente */
+
+#fullscreen-container {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    text-align: center;
+    z-index: 9999;
+}
+
+#fullscreen-container img {
+    max-width: 90%;
+    max-height: 90%;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+#close-button {
+    color: white;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.slider-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.slider {
+    display: flex;
+    max-width: 90%;
+    max-height: 90%;
+}
+
+.slider img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.slider-buttons {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+
+.prev-button,
+.next-button {
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+}
+
+.prev-button:hover,
+.next-button:hover {
+    color: #ccc;
+}
