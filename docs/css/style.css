@@ -1530,6 +1530,18 @@ img {
     width: 100%;
 }
 
+#aa-property-header2 {
+    background-image: url("../img/img-blog/blog-portada.png");
+    background-attachment: fixed;
+    background-position: center center;
+    background-size: cover;
+    display: inline;
+    float: left;
+    position: relative;
+    min-height: 400px;
+    width: 100%;
+}
+
 #aa-property-header::before {
     background-color: rgba(0, 0, 0, 0.4);
     bottom: 0;
