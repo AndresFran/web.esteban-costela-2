@@ -1437,7 +1437,7 @@ img {
 
 .aa-blog-single .aa-blog-single-content {
     display: inline;
-    float: left;
+    float: right;
     padding: 10px;
     width: 100%;
     padding-bottom: 20px;
@@ -1542,6 +1542,18 @@ img {
     width: 100%;
 }
 
+#aa-property-header3 {
+    background-image: url("../img/img-portadas/turno.jpeg");
+    background-attachment: fixed;
+    background-position: center center;
+    background-size: cover;
+    display: inline;
+    float: left;
+    position: relative;
+    min-height: 400px;
+    width: 100%;
+}
+
 #aa-property-header::before {
     background-color: rgba(0, 0, 0, 0.4);
     bottom: 0;
@@ -1560,8 +1572,23 @@ img {
     width: 100%;
 }
 
+#aa-property-header3 .aa-property-header-inner3 {
+    display: inline;
+    float: left;
+    padding: 150px 0 50px;
+    text-align: center;
+    width: 100%;
+}
+
 #aa-property-header .aa-property-header-inner h2 {
     color: #fff;
+    letter-spacing: 0.5px;
+    margin-top: 65px;
+    text-transform: uppercase;
+}
+
+#aa-property-header3 .aa-property-header-inner3 h2 {
+    color: #093e74;
     letter-spacing: 0.5px;
     margin-top: 65px;
     text-transform: uppercase;
