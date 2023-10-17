@@ -1,3 +1,7 @@
+<?PHP
+include('php/list_opciones.php');
+include('php/list_inmuebles_index.php');
+?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -109,8 +113,7 @@
                         <li><a href="servicios.html">Servicios</a></li>
                         <li><a href="blog.html">Blog</a></li>
                         <li class="dropdown">
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="contacto.html">Contacto <span
-                                    class="caret"></span></a>
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="contacto.html">Contacto <span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
                                 <li><a href="contacto.html">Contacto Rápido</a></li>
                                 <li><a href="./e/index.html">Tarjeta de Presentación</a></li>
@@ -165,74 +168,54 @@
     <section id="aa-advance-search">
         <div class="container">
             <div class="aa-advance-search-area">
-                <div class="form">
-                    <div class="aa-advance-search-top">
-                        <div class="row">
-                            <div class="col-md-4">
-                                <div class="aa-single-advance-search">
-                                    <input type="text" placeholder="Buscar">
+                <form action="propiedades.php">
+                    <div class=" form">
+                        <div class="aa-advance-search-top">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="aa-single-advance-search">
+                                        <input type="text" placeholder="Buscar">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-md-2">
-                                <div class="aa-single-advance-search">
-                                    <select>
-                                        <option value="0" selected>Propiedad</option>
-                                        <option value="1">Todas</option>
-                                        <option value="2">Casa</option>
-                                        <option value="3">Departamento</option>
-                                        <option value="4">Local Comercial</option>
-                                        <option value="5">Lote</option>
-                                        <option value="6">Finca</option>
-                                        <option value="7">Cochera</option>
-                                        <option value="8">Desarrollo Inmobiliario</option>
-                                    </select>
+                                <div class="col-md-2">
+                                    <div class="aa-single-advance-search">
+                                        <select name="propiedad">
+                                            <option value="" selected>Propiedad</option>
+                                            <?PHP while ($propiedad = mysqli_fetch_assoc($rtspropiedad)) { ?>
+                                                <option value="<?PHP echo $propiedad['idPropiedad']; ?>"> <?PHP echo $propiedad['nombrePropiedad']; ?></option>
+                                            <?PHP } ?>
+                                        </select>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-md-2">
-                                <div class="aa-single-advance-search">
-                                    <select>
-                                        <option value="0" selected>Operación</option>
-                                        <option value="1">Todas</option>
-                                        <option value="2">Alquiler</option>
-                                        <option value="3">Venta</option>
-                                    </select>
+                                <div class="col-md-2">
+                                    <div class="aa-single-advance-search">
+                                        <select name="operacion">
+                                            <option value="" selected>Operación</option>
+                                            <?PHP while ($operacion = mysqli_fetch_assoc($rtsoperacion)) { ?>
+                                                <option value="<?PHP echo $operacion['idOperacion']; ?>"> <?PHP echo $operacion['nombreOperacion']; ?></option>
+                                            <?PHP } ?>
+                                        </select>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-md-2">
-                                <div class="aa-single-advance-search">
-                                    <select>
-                                        <option value="0" selected>Localidad</option>
-                                        <option value="1">Todas</option>
-                                        <option value="2">Capital</option>
-                                        <option value="3">Rawson</option>
-                                        <option value="4">Chimbas</option>
-                                        <option value="5">Rivadavia</option>
-                                        <option value="6">Santa Lucía</option>
-                                        <option value="7">Pocito</option>
-                                        <option value="8">Caucete</option>
-                                        <option value="9">Jáchal</option>
-                                        <option value="10">Albardón</option>
-                                        <option value="11">Sarmiento</option>
-                                        <option value="12">25 de Mayo</option>
-                                        <option value="13">San Martin</option>
-                                        <option value="14">Calingasta</option>
-                                        <option value="15">9 de Julio</option>
-                                        <option value="16">Angaco</option>
-                                        <option value="17">Valle Fértil</option>
-                                        <option value="18">Iglesia</option>
-                                        <option value="19">Ullúm</option>
-                                        <option value="20">Zonda</option>
-                                    </select>
+                                <div class="col-md-2">
+                                    <div class="aa-single-advance-search">
+                                        <select>
+                                            <option value="" selected>Localidad</option>
+                                            <?PHP while ($localidad = mysqli_fetch_assoc($rtslocalidad)) { ?>
+                                                <option value="<?PHP echo $localidad['idLocalidad']; ?>"> <?PHP echo $localidad['nombreLocalidad']; ?></option>
+                                            <?PHP } ?>
+                                        </select>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-md-2">
-                                <div class="aa-single-advance-search">
-                                    <input class="aa-search-btn" type="submit" value="Buscar">
+                                <div class="col-md-2" name="localidad">
+                                    <div class="aa-single-advance-search">
+                                        <input class="aa-search-btn" type="submit" value="Buscar">
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                </form>
             </div>
         </div>
     </section>
@@ -251,176 +234,7 @@
                 </div>
                 <div class="aa-latest-properties-content">
                     <div class="row">
-                        <div class="col-md-4">
-                            <article class="aa-properties-item">
-                                <a href="detalle-inmueble.html" class="aa-properties-item-img">
-                                    <img src="img/img-portadas/lista1.jpeg" alt="img">
-                                </a>
-                                <div class="aa-tag for-sale">
-                                    Venta
-                                </div>
-                                <div class="aa-properties-item-content">
-                                    <div class="aa-properties-info">
-                                        <span>5 Ambientes</span>
-                                        <span>2 Habitaciones</span>
-                                        <span>3 Baños</span>
-                                        <span>172 m2</span>
-                                    </div>
-                                    <div class="aa-properties-about">
-                                        <h3><a href="detalle-inmueble.html">Casa en Rivadavia</a></h3>
-                                        <p>Casa con quinta en zona de Marquesado, ideal para vacacionar. Tiene pileta y quincho.
-                                        </p>
-                                    </div>
-                                    <div class="aa-properties-detial">
-                                        <span class="aa-price">
-                                            USD 135.000
-                                        </span>
-                                        <a href="detalle-inmueble.html" class="aa-secondary-btn">Ver detalles</a>
-                                    </div>
-                                </div>
-                            </article>
-                        </div>
-                        <div class="col-md-4">
-                            <article class="aa-properties-item">
-                                <a href="detalle-inmueble.html" class="aa-properties-item-img">
-                                    <img src="img/img-portadas/lista2.jpeg" alt="img">
-                                </a>
-                                <div class="aa-tag for-rent">
-                                    Alquiler
-                                </div>
-                                <div class="aa-properties-item-content">
-                                    <div class="aa-properties-info">
-                                        <span>2 Ambientes</span>
-                                        <span>2 Habitaciones</span>
-                                        <span>1 Baño</span>
-                                        <span>67 m2</span>
-                                    </div>
-                                    <div class="aa-properties-about">
-                                        <h3><a href="detalle-inmueble.html">Departamento en Capital</a></h3>
-                                        <p>Hermoso depto amoblado y listo para habitar. Con salida a una avenida importante y zona comercial.</p>
-                                    </div>
-                                    <div class="aa-properties-detial">
-                                        <span class="aa-price">
-                                            $92.000
-                                        </span>
-                                        <a href="detalle-inmueble.html" class="aa-secondary-btn">Ver detalles</a>
-                                    </div>
-                                </div>
-                            </article>
-                        </div>
-                        <div class="col-md-4">
-                            <article class="aa-properties-item">
-                                <a href="detalle-inmueble.html" class="aa-properties-item-img">
-                                    <img src="img/img-portadas/lista3.jpeg" alt="img">
-                                </a>
-                                <div class="aa-tag sold-out">
-                                    Vendida
-                                </div>
-                                <div class="aa-properties-item-content">
-                                    <div class="aa-properties-info">
-                                        <span>3 Ambientes</span>
-                                        <span>2 Habitaciones</span>
-                                        <span>2 Baños</span>
-                                        <span>110 m2</span>
-                                    </div>
-                                    <div class="aa-properties-about">
-                                        <h3><a href="detalle-inmueble.html">Casa en Iglesia</a></h3>
-                                        <p>Casa con vista a la montaña para vivienda vacacional o para invetir. Excelente ubicación.</p>
-                                    </div>
-                                    <div class="aa-properties-detial">
-                                        <span class="aa-price">
-                                            USD 85.000
-                                        </span>
-                                        <a href="detalle-inmueble.html" class="aa-secondary-btn">Ver detalles</a>
-                                    </div>
-                                </div>
-                            </article>
-                        </div>
-                        <div class="col-md-4">
-                            <article class="aa-properties-item">
-                                <a href="detalle-inmueble.html" class="aa-properties-item-img">
-                                    <img src="img/img-portadas/lista4.jpeg" alt="img">
-                                </a>
-                                <div class="aa-tag for-sale">
-                                    Venta
-                                </div>
-                                <div class="aa-properties-item-content">
-                                    <div class="aa-properties-info">
-                                        <span>3 Ambientes</span>
-                                        <span>1 Dormitorio</span>
-                                        <span>2 Baños</span>
-                                        <span>93 m2</span>
-                                    </div>
-                                    <div class="aa-properties-about">
-                                        <h3><a href="detalle-inmueble.html">Departamento en Rawson</a></h3>
-                                        <p>Depto listo para habitar en Villa Krawse a metros de la plaza principal. Moderno y con mucha luz.</p>
-                                    </div>
-                                    <div class="aa-properties-detial">
-                                        <span class="aa-price">
-                                            Consultar
-                                        </span>
-                                        <a href="detalle-inmueble.html" class="aa-secondary-btn">Ver detalles</a>
-                                    </div>
-                                </div>
-                            </article>
-                        </div>
-                        <div class="col-md-4">
-                            <article class="aa-properties-item">
-                                <a href="detalle-inmueble.html" class="aa-properties-item-img">
-                                    <img src="img/img-portadas/lista5.jpeg" alt="img">
-                                </a>
-                                <div class="aa-tag sold-out">
-                                    Vendida
-                                </div>
-                                <div class="aa-properties-item-content">
-                                    <div class="aa-properties-info">
-                                        <span>2 Ambientes</span>
-                                        <span>2 Habitaciones</span>
-                                        <span>1 Baño</span>
-                                        <span>99 m2</span>
-                                    </div>
-                                    <div class="aa-properties-about">
-                                        <h3><a href="detalle-inmueble.html">Depto en Barrio Aramburu</a></h3>
-                                        <p>Depto en zona del polideportivo y escuela del barrio Aramburu. Depto reformado.
-                                        </p>
-                                    </div>
-                                    <div class="aa-properties-detial">
-                                        <span class="aa-price">
-                                            $13.750.000
-                                        </span>
-                                        <a href="detalle-inmueble.html" class="aa-secondary-btn">Ver detalles</a>
-                                    </div>
-                                </div>
-                            </article>
-                        </div>
-                        <div class="col-md-4">
-                            <article class="aa-properties-item">
-                                <a href="detalle-inmueble.html" class="aa-properties-item-img">
-                                    <img src="img/img-portadas/lista9.jpeg" alt="img">
-                                </a>
-                                <div class="aa-tag for-rent">
-                                    Alquiler
-                                </div>
-                                <div class="aa-properties-item-content">
-                                    <div class="aa-properties-info">
-                                        <span>5 Ambientes</span>
-                                        <span>2 Habitaciones</span>
-                                        <span>3 Baños</span>
-                                        <span>149 m2</span>
-                                    </div>
-                                    <div class="aa-properties-about">
-                                        <h3><a href="detalle-inmueble.html">Casa en Santa Lucía</a></h3>
-                                        <p>Casa en zona de Alto de Sierra, con parada de colectivo en la puerta y todos los servicios.</p>
-                                    </div>
-                                    <div class="aa-properties-detial">
-                                        <span class="aa-price">
-                                            $123.000
-                                        </span>
-                                        <a href="detalle-inmueble.html" class="aa-secondary-btn">Ver detalles</a>
-                                    </div>
-                                </div>
-                            </article>
-                        </div>
+                        <?PHP echo $listado; ?>
                     </div>
                 </div>
             </div>
@@ -557,8 +371,7 @@
                     <div class="aa-contact-area">
                         <div class="aa-contact-top">
                             <div class="aa-contact-top-left">
-                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3400.3537427407873!2d-68.54587012519922!3d-31.54190517420406!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x96814176728cea9f%3A0xd785f3125f2bfe75!2sEsteban%20Costela%20propiedades!5e0!3m2!1ses-419!2ses!4v1692776126784!5m2!1ses-419!2ses"
-                                    width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3400.3537427407873!2d-68.54587012519922!3d-31.54190517420406!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x96814176728cea9f%3A0xd785f3125f2bfe75!2sEsteban%20Costela%20propiedades!5e0!3m2!1ses-419!2ses!4v1692776126784!5m2!1ses-419!2ses" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                             </div>
                             <div class="aa-contact-top-right" align="justify">
                                 <h2>Contacto</h2>
@@ -576,7 +389,8 @@
                                 <h2>Mantengamos el contacto</h2>
                                 <span></span>
                                 <p>Déjanos tu mensaje y nos contactaremos a la brevedad. Los campos indicados son obligatorios
-                                    <strong class="required">*</strong></p>
+                                    <strong class="required">*</strong>
+                                </p>
                             </div>
                             <div class="aa-contact-form">
                                 <form class="contactform">
@@ -628,12 +442,9 @@
                             </div>
                             <div class="col-md-2 col-sm-6 col-xs-12">
                                 <div class="aa-footer-middle">
-                                    <a href="https://www.facebook.com/Estebancostelapropiedades" target="_blank"><i
-                                            class="fa fa-facebook"></i></a>
-                                    <a href="https://www.instagram.com/esteban_costela/" target="_blank"><i
-                                            class="fa fa-instagram"></i></a>
-                                    <a href="https://www.youtube.com/@estebancostelapropiedades4439" target="_blank"><i
-                                            class="fa fa-youtube"></i></a>
+                                    <a href="https://www.facebook.com/Estebancostelapropiedades" target="_blank"><i class="fa fa-facebook"></i></a>
+                                    <a href="https://www.instagram.com/esteban_costela/" target="_blank"><i class="fa fa-instagram"></i></a>
+                                    <a href="https://www.youtube.com/@estebancostelapropiedades4439" target="_blank"><i class="fa fa-youtube"></i></a>
                                 </div>
                             </div>
                             <div class="col-md-6 col-sm-12 col-xs-12">
