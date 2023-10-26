@@ -135,13 +135,16 @@ $listadoImg = "<div class='carousel-slide'>";
 if (!file_exists($nomimg)) {
     $nomimg = "gestion/assets/images/inmuebles/00000000.png";
 
-    $listadoImg = "<img src='" . $nomimg . "' alt='Imagen'>";
+    //$listadoImg = "<img src='" . $nomimg . "' alt='Imagen'>";
+    $listadoImg .= "<img src='" . $nomimg . "' alt='img' onclick='openFullscreen('" . $nomimg . "')'>";
 } else {
     $queryimagenes = "SELECT * FROM imagen WHERE idInmueble = '$idInmueble' AND baja != '1' ORDER BY ordenImagen ASC";
     $rtsimagenes = mysqli_query($conexion, $queryimagenes);
     while ($imagenes = mysqli_fetch_assoc($rtsimagenes)) {
         $imagen = "/gestion/assets/images/inmuebles/" . str_pad($imagenes['idImagen'], 8, "0", STR_PAD_LEFT) . "." . $imagenes['tipoImagen'];
-        $listadoImg .= "<img src='" . $imagen . "' alt='" . $imagenes['idImagen'] . "'>";
+        //$listadoImg .= "<img src='" . $imagen . "' alt='" . $imagenes['idImagen'] . "'>";
+        $listadoImg .= "<img src='" . $nomimg . "' alt='img' onclick='openFullscreen('" . $nomimg . "')'>";
+        //<img src="img/img-detalle/1.jpeg" alt="img" onclick="openFullscreen('img/img-detalle/1.jpeg')">
     }
 }
 $listadoImg .= "</div>";
