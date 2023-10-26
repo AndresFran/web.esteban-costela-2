@@ -1,6 +1,6 @@
 <?PHP
-include('php/list_opciones.php');
 include('php/det_inmueble.php');
+include('php/list_inmuebles_destacados.php');
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -35,6 +35,9 @@ include('php/det_inmueble.php');
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" />
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" />
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css" integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ==" crossorigin="" />
+
     <style>
         /* Add your fullscreen CSS styles here */
 
@@ -70,6 +73,7 @@ include('php/det_inmueble.php');
             cursor: pointer;
         }
     </style>
+
 </head>
 
 <body class="aa-price-range">
@@ -291,10 +295,27 @@ include('php/det_inmueble.php');
                                         </tbody>
                                     </table>
                                 </div>
-                                <h4>Video de la propiedad</h4>
-                                <iframe width="100%" height="480" src="https://www.youtube.com/embed/CegXQps0In4" frameborder="0" allowfullscreen></iframe>
+                                <?PHP
+                                $video = "/gestion/assets/videos/" . str_pad($_REQUEST['idInmueble'], 8, "0", STR_PAD_LEFT) . ".mp4";
+                                if (file_exists($_SERVER['DOCUMENT_ROOT'] . $video)) { ?>
+                                    <h4>Video de la propiedad</h4>
+                                    <video width="auto" height="auto" controls poster="vistaprevia.jpg">
+                                        <source src="<?PHP echo $video; ?>" type="video/mp4">
+                                    </video>
+                                <?PHP } ?>
                                 <h4>Ubicación</h4>
-                                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1372.5706790798445!2d-68.49696261960807!3d-31.643826684996043!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses-419!2ses!4v1692913969628!5m2!1ses-419!2ses" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                <p><?PHP echo $domicilio; ?></p>
+                                <?PHP if (!empty($ubicacionInmueble)) { ?>
+
+                                    <div id="myMap" name="myMap" style="height: 400px" required></div>
+                                    <a href="https://www.google.com/maps?q=<?PHP echo $ubicacionInmueble; ?>&z=17&hl=es" target="_blank" class="btn btn-info">Ver en el Mapa</a>
+                                <?PHP } ?>
+
+                                <!-- <h4>Video de la propiedad</h4>
+                                <iframe width="100%" height="480" src="https://www.youtube.com/embed/CegXQps0In4" frameborder="0" allowfullscreen></iframe> -->
+                                <!-- <h4>Ubicación</h4>
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1372.5706790798445!2d-68.49696261960807!3d-31.643826684996043!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses-419!2ses!4v1692913969628!5m2!1ses-419!2ses" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> -->
+
                             </div>
                             <!-- Properties social share -->
                             <div class="aa-properties-social">
@@ -308,72 +329,12 @@ include('php/det_inmueble.php');
                             <!-- Nearby properties -->
                             <div class="aa-nearby-properties">
                                 <div class="aa-title">
-                                    <h2>Propiedades similares</h2>
+                                    <h2><?PHP echo $tituloDestacado; ?></h2>
                                     <span></span>
                                 </div>
                                 <div class="aa-nearby-properties-area">
                                     <div class="row">
-                                        <div class="col-md-6">
-                                            <article class="aa-properties-item">
-                                                <a class="aa-properties-item-img" href="detalle-inmueble.html">
-                                                    <img alt="img" src="img/img-detalle/20.jpeg">
-                                                </a>
-                                                <div class="aa-tag for-sale">
-                                                    Venta
-                                                </div>
-                                                <div class="aa-properties-item-content">
-                                                    <div class="aa-properties-info">
-                                                        <span>5 Ambientes</span>
-                                                        <span>2 Habitaciones</span>
-                                                        <span>3 Baños</span>
-                                                        <span>114 m2</span>
-                                                    </div>
-                                                    <div class="aa-properties-about">
-                                                        <h3><a href="detalle-inmueble.html">Casa Quinta en 9 de
-                                                                Julio</a></h3>
-                                                        <p>VENTA. Ideal para vacacionar o para invertir. Pileta, quincho y parquelleno de árboles.</p>
-                                                    </div>
-                                                    <div class="aa-properties-detial">
-                                                        <span class="aa-price">
-                                                            Consultar
-                                                        </span>
-                                                        <a class="aa-secondary-btn" href="detalle-inmueble.html">Ver
-                                                            detalles</a>
-                                                    </div>
-                                                </div>
-                                            </article>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <article class="aa-properties-item">
-                                                <a class="aa-properties-item-img" href="detalle-inmueble.html">
-                                                    <img alt="img" src="img/img-detalle/30.jpeg">
-                                                </a>
-                                                <div class="aa-tag for-sale">
-                                                    Venta
-                                                </div>
-                                                <div class="aa-properties-item-content">
-                                                    <div class="aa-properties-info">
-                                                        <span>3 Ambientes</span>
-                                                        <span>2 Habitaciones</span>
-                                                        <span>1 Baño</span>
-                                                        <span>114 m2</span>
-                                                    </div>
-                                                    <div class="aa-properties-about">
-                                                        <h3>
-                                                            <a href="detalle-inmueble.html">Casa en Pocito</a>
-                                                        </h3>
-                                                        <p>VENTA. Zona rural de Pocito con todos los servicios en la puerta. Casa con lote grande y pileta.</p>
-                                                    </div>
-                                                    <div class="aa-properties-detial">
-                                                        <span class="aa-price">
-                                                            USD 75.000
-                                                        </span>
-                                                        <a class="aa-secondary-btn" href="detalle-inmueble.html">Ver
-                                                            detalles</a>
-                                                    </div>
-                                                </div>
-                                            </article>
-                                        </div>
+                                        <?PHP echo $destacado; ?>
                                     </div>
                                 </div>
                             </div>
@@ -479,6 +440,29 @@ include('php/det_inmueble.php');
             var fullscreenContainer = document.getElementById("fullscreen-container");
             fullscreenContainer.style.display = "none";
         }
+    </script>
+
+    <!-- Make sure you put this AFTER Leaflet's CSS -->
+    <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js" integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ==" crossorigin="">
+    </script>
+    <!--script src="assets/js/mapview.js"></script-->
+
+    <script>
+        const tilesProvider = "	https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+
+        var latlng = "<?= $ubicacionInmueble ?>";
+        //console.log("Ubicacion: " + latlng); 
+
+        let coordenadas = latlng.split(',')
+        let myMap = L.map('myMap').setView(coordenadas, 15)
+
+        //let myMap = L.map('myMap').setView([-31.5373, -68.5251], 14)
+
+        L.tileLayer(tilesProvider, {
+            maxZoom: 18,
+        }).addTo(myMap)
+
+        let marker = L.marker(coordenadas).addTo(myMap)
     </script>
 </body>
 
