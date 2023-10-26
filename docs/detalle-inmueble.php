@@ -176,10 +176,10 @@ include('php/det_inmueble.php');
                     <div class="aa-properties-content">
                         <!-- Start properties content body -->
                         <div class="aa-properties-details">
-                            <div class="aa-properties-details-img">
-                                <!-- <img src="img/img-detalle/1.jpeg" alt="img" onclick="openFullscreen('img/img-detalle/1.jpeg')"> -->
-                                <?PHP echo $listadoImg; ?>
-                            </div>
+                            <!-- <div class="aa-properties-details-img"> -->
+                            <!-- <img src="img/img-detalle/1.jpeg" alt="img" onclick="openFullscreen('img/img-detalle/1.jpeg')"> -->
+                            <?PHP echo $listadoImg; ?>
+                            <!-- </div> -->
                             <div class="aa-properties-info" align="justify">
                                 <h2><?PHP echo $tituloInmueble; ?></h2>
                                 <span class="aa-price"><?PHP echo $valorInmueble; ?></span>
@@ -250,19 +250,25 @@ include('php/det_inmueble.php');
                                                 <th scope="row">Incluido</th>
                                                 <td class="d-flex">
                                                     <ul>
-                                                        <?PHP if ($cocheraInmueble = "SI") {
-                                                            echo "<li>Cochera</li>";
+                                                        <?PHP if ($cocheraInmueble == "Si") {
+                                                            echo "<li>Cochera" . $tipoCocheraInmueble . "</li>";
                                                         } ?>
-                                                        <?PHP if ($pavimentoInmueble = "SI") {
+                                                        <?PHP if ($pavimentoInmueble == "Si") {
                                                             echo "<li>Calle pavimentada</li>";
                                                         } ?>
                                                     </ul>
                                                     <ul>
-                                                        <?PHP if ($cloacaInmueble = "SI") {
+                                                        <?PHP if ($cloacaInmueble == "Si") {
                                                             echo "<li>Cloacas</li>";
                                                         } ?>
-                                                        <?PHP if ($gasNaturalInmueble = "SI") {
+                                                        <?PHP if ($gasNaturalInmueble == "Si") {
                                                             echo "<li>Gas Natural</li>";
+                                                        } ?>
+                                                        <?PHP if ($aguaCorrienteInmueble == "Si") {
+                                                            echo "<li>Agua Corriente</li>";
+                                                        } ?>
+                                                        <?PHP if (!empty($tipoAguaCalienteInmueble)) {
+                                                            echo "<li>" . $tipoAguaCalienteInmueble . "</li>";
                                                         } ?>
                                                     </ul>
                                                 </td>
