@@ -99,16 +99,16 @@ include('php/list_inmuebles_index.php');
                     </button>
                     <!-- LOGO -->
                     <!-- Text based logo -->
-                    <a class="navbar-brand" href="index.html">
+                    <a class="navbar-brand" href="index.php">
                         <img src="img/img-logo/costela-transparente3.png" width="220px" alt="" />
                     </a>
                     <!-- Image based logo -->
-                    <!-- <a class="navbar-brand aa-logo-img" href="index.html"><img src="img/logo.png" alt="logo"></a> -->
+                    <!-- <a class="navbar-brand aa-logo-img" href="index.php"><img src="img/logo.png" alt="logo"></a> -->
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul id="top-menu" class="nav navbar-nav navbar-right aa-main-nav">
-                        <li class="active"><a href="index.html">Inicio</a></li>
-                        <li><a href="propiedades.html">Propiedades</a></li>
+                        <li class="active"><a href="index.php">Inicio</a></li>
+                        <li><a href="propiedades.php">Propiedades</a></li>
                         <li><a href="nosotros.html">Nosotros</a></li>
                         <li><a href="servicios.html">Servicios</a></li>
                         <li><a href="blog.html">Blog</a></li>
@@ -116,7 +116,7 @@ include('php/list_inmuebles_index.php');
                             <a class="dropdown-toggle" data-toggle="dropdown" href="contacto.html">Contacto <span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
                                 <li><a href="contacto.html">Contacto Rápido</a></li>
-                                <li><a href="./e/index.html">Tarjeta de Presentación</a></li>
+                                <li><a href="./e/index.php">Tarjeta de Presentación</a></li>
                                 <li><a href="turnos.html">Solicitar Turno</a></li>
                             </ul>
                         </li>
@@ -250,7 +250,7 @@ include('php/list_inmuebles_index.php');
                     <div class="aa-promo-banner-area">
                         <h3>Encuentra la propiedad a tu medida</h3>
                         <p>Ingresa a la amplia oferta que tenemos en nuestra base de datos. Elige la que esté a tu medida y consúltanos por cualquiera de ellas.</p>
-                        <a href="propiedades.html" class="aa-view-btn">Ver todas las propiedades</a>
+                        <a href="propiedades.php" class="aa-view-btn">Ver todas las propiedades</a>
                     </div>
                 </div>
             </div>
@@ -449,8 +449,8 @@ include('php/list_inmuebles_index.php');
                             </div>
                             <div class="col-md-6 col-sm-12 col-xs-12">
                                 <div class="aa-footer-right">
-                                    <a href="index.html">Inicio</a>
-                                    <a href="propiedades.html">Propiedades</a>
+                                    <a href="index.php">Inicio</a>
+                                    <a href="propiedades.php">Propiedades</a>
                                     <a href="nosotros.html">Nosotros</a>
                                     <a href="servicios.html">Servicios</a>
                                     <a href="blog.html">Blog</a>

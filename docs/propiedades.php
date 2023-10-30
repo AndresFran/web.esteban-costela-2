@@ -1,3 +1,8 @@
+<?PHP
+include('php/list_opciones.php');
+include('php/list_inmuebles.php');
+include('php/list_inmuebles_ultimos.php');
+?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -5,7 +10,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Contacto</title>
+    <title>Propiedades</title>
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="img/img-logo/costela-fb.png" type="image/x-icon">
@@ -43,8 +48,7 @@
 
 </head>
 
-<body>
-
+<body class="aa-price-range">
     <!-- Pre Loader -->
     <div id="aa-preloader-area">
         <div class="pulse"></div>
@@ -89,8 +93,7 @@
             <div class="container">
                 <div class="navbar-header">
                     <!-- FOR MOBILE VIEW COLLAPSED BUTTON -->
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
-                        aria-expanded="false" aria-controls="navbar">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
                         <span class="sr-only">Toggle navigation</span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
@@ -105,15 +108,14 @@
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul id="top-menu" class="nav navbar-nav navbar-right aa-main-nav">
                         <li><a href="index.php">Inicio</a></li>
-                        <li><a href="propiedades.php">Propiedades</a></li>
+                        <li class="active"><a href="propiedades.php">Propiedades</a></li>
                         <li><a href="nosotros.html">Nosotros</a></li>
                         <li><a href="servicios.html">Servicios</a></li>
                         <li><a href="blog.html">Blog</a></li>
                         <li class="dropdown">
-                            <a class="dropdown-toggle" class="active" data-toggle="dropdown"
-                                href="contacto.html">Contacto <span class="caret"></span></a>
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="contacto.html">Contacto <span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
-                                <li class="active"><a href="contacto.html">Contacto Rápido</a></li>
+                                <li><a href="contacto.html">Contacto Rápido</a></li>
                                 <li><a href="./e/index.php">Tarjeta de Presentación</a></li>
                                 <li><a href="turnos.html">Solicitar Turno</a></li>
                             </ul>
@@ -133,8 +135,11 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="aa-property-header-inner">
-                        <h2>Contacto</h2> <br>
-                        <a href="/docs/e/index.php" class="aa-view-btn">Tarjeta de Presentación</a>
+                        <h2>Propiedades</h2>
+                        <ol class="breadcrumb">
+                            <li><a>Venta</a></li>
+                            <li class="active">Alquiler</li>
+                        </ol>
                     </div>
                 </div>
             </div>
@@ -142,71 +147,119 @@
     </section>
     <!-- End Proerty header  -->
 
-    <section id="aa-contact">
+    <!-- Start Properties  -->
+    <section id="aa-properties">
         <div class="container">
             <div class="row">
-                <div class="col-md-12">
-                    <div class="aa-contact-area">
-                        <div class="aa-contact-top">
-                            <div class="aa-contact-top-left">
-                                <iframe
-                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3400.3537427407873!2d-68.54587012519922!3d-31.54190517420406!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x96814176728cea9f%3A0xd785f3125f2bfe75!2sEsteban%20Costela%20propiedades!5e0!3m2!1ses-419!2ses!4v1692776126784!5m2!1ses-419!2ses"
-                                    width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-                                    referrerpolicy="no-referrer-when-downgrade"></iframe>
-                            </div>
-                            <div class="aa-contact-top-right" align="justify">
-                                <h2>Contacto</h2>
-                                <p>Nuestras oficinas están a tu disposición en calle Francisco de Miranda Oeste Nº 1243,
-                                    Departamento Capital, Provincia de San Juan.</p>
-                                <p>Nuestro horario es de corrido de Lunes a Viernes de 9:00 a 15:00 hs.</p>
-                                <ul class="contact-info-list">
-                                    <li> <i class="fa fa-phone"></i>264 459 5997</li>
-                                    <li> <i class="fa fa-envelope-o"></i>info@estebancostela.com.ar</li>
-                                    <li> <i class="fa fa-map-marker"></i>Francisco de Miranda 1243 (O) - <br> &nbsp;
-                                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Capital, San Juan</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="aa-contact-bottom">
-                            <div class="aa-title">
-                                <h2>Mantengamos el contacto</h2>
-                                <span></span>
-                                <p>Déjanos tu mensaje y nos contactaremos a la brevedad. Los campos indicados son
-                                    obligatorios
-                                    <strong class="required">*</strong>
-                                </p>
-                            </div>
-                            <div class="aa-contact-form">
-                                <form class="contactform">
-                                    <p class="comment-form-author">
-                                        <label for="author">Nombre y Apellido <span class="required">*</span></label>
-                                        <input type="text" name="author" value="" size="30" required="required">
-                                    </p>
-                                    <p class="comment-form-email">
-                                        <label for="email">E-mail <span class="required">*</span></label>
-                                        <input type="email" name="email" value="" aria-required="true"
-                                            required="required">
-                                    </p>
-                                    <p class="comment-form-url">
-                                        <label for="subject">Asunto</label>
-                                        <input type="text" name="subject">
-                                    </p>
-                                    <p class="comment-form-comment">
-                                        <label for="comment">Mensaje</label>
-                                        <textarea name="comment" cols="45" rows="8" aria-required="true"
-                                            required="required"></textarea>
-                                    </p>
-                                    <p class="form-submit">
-                                        <input type="submit" name="submit" class="aa-browse-btn" value="Enviar mensaje">
-                                    </p>
+                <div class="col-md-8">
+                    <div class="aa-properties-content">
+                        <!-- start properties content head -->
+                        <div class="aa-properties-content-head">
+                            <div class="aa-properties-content-head-left">
+                                <form action="" class="aa-sort-form">
+                                    <!-- <label for="">Ordenar por</label>
+                                    <select name="">
+                                        <option value="1" selected="Default">Default</option>
+                                        <option value="2">Nombre</option>
+                                        <option value="3">Precio</option>
+                                        <option value="4">Fecha</option>
+                                    </select> -->
+                                </form>
+                                <form action="" class="aa-show-form">
+                                    <!-- <label for="">Mostrar</label>
+                                    <select name="">
+                                        <option value="1" selected="12">6</option>
+                                        <option value="2">12</option>
+                                        <option value="3">24</option>
+                                    </select> -->
                                 </form>
                             </div>
+                            <div class="aa-properties-content-head-right">
+                                <a id="aa-grid-properties" href="#"><span class="fa fa-th"></span></a>
+                                <a id="aa-list-properties" href="#"><span class="fa fa-list"></span></a>
+                            </div>
                         </div>
+                        <!-- Start properties content body -->
+                        <div class="aa-properties-content-body">
+                            <ul class="aa-properties-nav">
+                                <?PHP echo $listado; ?>
+                            </ul>
+                        </div>
+                        <!-- Start properties content bottom -->
+                        <!-- <div class="aa-properties-content-bottom">
+                            <nav>
+                                <ul class="pagination">
+                                    <li>
+                                        <a href="#" aria-label="Previous">
+                                            <span aria-hidden="true">&laquo;</span>
+                                        </a>
+                                    </li>
+                                    <li><a href="#">1</a></li>
+                                    <li><a href="#">2</a></li>
+                                    <li class="active"><a href="#">3</a></li>
+                                    <li><a href="#">4</a></li>
+                                    <li><a href="#">5</a></li>
+                                    <li>
+                                        <a href="#" aria-label="Next">
+                                            <span aria-hidden="true">&raquo;</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div> -->
                     </div>
+                </div>
+                <!-- Start properties sidebar -->
+                <div class="col-md-4">
+                    <aside class="aa-properties-sidebar">
+                        <!-- Start Single properties sidebar -->
+                        <div class="aa-properties-single-sidebar">
+                            <h3>Buscador</h3>
+                            <form action="propiedades.php">
+                                <div class="aa-single-advance-search">
+                                    <input type="text" placeholder="Buscar">
+                                </div>
+                                <div class="aa-single-advance-search">
+                                    <select id="" name="">
+                                        <option value="0" selected>Propiedad</option>
+                                        <?PHP while ($propiedad = mysqli_fetch_assoc($rtspropiedad)) { ?>
+                                            <option value="<?PHP echo $propiedad['idPropiedad']; ?>"> <?PHP echo $propiedad['nombrePropiedad']; ?></option>
+                                        <?PHP } ?>
+                                    </select>
+                                </div>
+                                <div class="aa-single-advance-search">
+                                    <select id="" name="">
+                                        <option value="0" selected>Operación</option>
+                                        <?PHP while ($operacion = mysqli_fetch_assoc($rtsoperacion)) { ?>
+                                            <option value="<?PHP echo $operacion['idOperacion']; ?>"> <?PHP echo $operacion['nombreOperacion']; ?></option>
+                                        <?PHP } ?>
+                                    </select>
+                                </div>
+                                <div class="aa-single-advance-search">
+                                    <select id="" name="">
+                                        <option value="0" selected>Localidad</option>
+                                        <?PHP while ($localidad = mysqli_fetch_assoc($rtslocalidad)) { ?>
+                                            <option value="<?PHP echo $localidad['idLocalidad']; ?>"> <?PHP echo $localidad['nombreLocalidad']; ?></option>
+                                        <?PHP } ?>
+                                    </select>
+                                </div>
+
+                                <div class="aa-single-advance-search">
+                                    <input type="submit" value="Buscar" class="aa-search-btn">
+                                </div>
+                            </form>
+                        </div>
+                        <!-- Start Single properties sidebar -->
+                        <div class="aa-properties-single-sidebar">
+                            <h3>Últimos agregados</h3>
+                            <?PHP echo $listadoUltimos; ?>
+                        </div>
+                    </aside>
                 </div>
             </div>
         </div>
     </section>
+    <!-- / Properties  -->
 
     <!-- Footer -->
     <footer id="aa-footer">
@@ -228,12 +281,9 @@
                             </div>
                             <div class="col-md-2 col-sm-6 col-xs-12">
                                 <div class="aa-footer-middle">
-                                    <a href="https://www.facebook.com/Estebancostelapropiedades" target="_blank"><i
-                                            class="fa fa-facebook"></i></a>
-                                    <a href="https://www.instagram.com/esteban_costela/" target="_blank"><i
-                                            class="fa fa-instagram"></i></a>
-                                    <a href="https://www.youtube.com/@estebancostelapropiedades4439" target="_blank"><i
-                                            class="fa fa-youtube"></i></a>
+                                    <a href="https://www.facebook.com/Estebancostelapropiedades" target="_blank"><i class="fa fa-facebook"></i></a>
+                                    <a href="https://www.instagram.com/esteban_costela/" target="_blank"><i class="fa fa-instagram"></i></a>
+                                    <a href="https://www.youtube.com/@estebancostelapropiedades4439" target="_blank"><i class="fa fa-youtube"></i></a>
                                 </div>
                             </div>
                             <div class="col-md-6 col-sm-12 col-xs-12">
@@ -253,6 +303,8 @@
         </div>
     </footer>
     <!-- / Footer -->
+
+
 
     <!-- jQuery library -->
     <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> -->

@@ -44,20 +44,34 @@ while ($inmuebles = mysqli_fetch_assoc($rtsinmuebles)) {
     if (!file_exists($nomimg)) {
         $nomimg = "gestion/assets/images/inmuebles/00000000.png";
     }
-    if ($inmuebles['habitacionesInmueble'] > 0) {
-        $habitacionesInmueble = $inmuebles['habitacionesInmueble'];
+    if ($inmuebles['plantasInmueble'] > 0) {
+        $plantasInmueble = $inmuebles['plantasInmueble'] . " Planta";
+        if ($inmuebles['plantasInmueble'] > 1) {
+            $plantasInmueble = $plantasInmueble . "s";
+        }
     } else {
-        $habitacionesInmueble = "-";
+        $plantasInmueble = "";
+    };
+    if ($inmuebles['habitacionesInmueble'] > 0) {
+        $habitacionesInmueble = $inmuebles['habitacionesInmueble'] . " Habitacion";
+        if ($inmuebles['habitacionesInmueble'] > 1) {
+            $habitacionesInmueble = $habitacionesInmueble . "es";
+        }
+    } else {
+        $habitacionesInmueble = "";
     };
     if ($inmuebles['banosInmueble'] > 0) {
-        $banosInmueble = $inmuebles['banosInmueble'];
+        $banosInmueble = $inmuebles['banosInmueble'] . " Baños";
+        if ($inmuebles['banosInmueble'] > 1) {
+            $banosInmueble = $banosInmueble . "s";
+        }
     } else {
-        $banosInmueble = "&nbsp;-&nbsp;";
+        $banosInmueble = "";
     };
     if ($inmuebles['superficieCubiertaInmueble'] > 0) {
         $superficieCubiertaInmueble = $inmuebles['superficieCubiertaInmueble'];
     } else {
-        $superficieCubiertaInmueble = "-";
+        $superficieCubiertaInmueble = "";
     };
     if ($inmuebles['valorInmueble'] > 0) {
         $valorInmueble = $inmuebles['monedaInmueble'] . "</b>&nbsp;" . $inmuebles['valorInmueble'];
@@ -65,6 +79,9 @@ while ($inmuebles = mysqli_fetch_assoc($rtsinmuebles)) {
         $valorInmueble = "Consultar";
     };
     $domicilio = "";
+    if (!empty($inmuebles['domicilioCalleInmueble'])) {
+        $domicilio .= $inmuebles['domicilioCalleInmueble'];
+    }
     if (!empty($inmuebles['domicilioNumeroInmueble'])) {
         $domicilio .= " " . $inmuebles['domicilioNumeroInmueble'];
     }
@@ -74,33 +91,66 @@ while ($inmuebles = mysqli_fetch_assoc($rtsinmuebles)) {
     if (!empty($inmuebles['nombreLocalidad'])) {
         $domicilio .= " - " . $inmuebles['nombreLocalidad'] . "</b>";
     }
-    $listado .= "<div class='col-md-4'>";
-    $listado .= "<div class='property-wrap ftco-animate'>";
-    $listado .= "<div class='img d-flex align-items-center justify-content-center' style='background-image: url(" . $nomimg . ")'>";
-    $listado .= "<a href='detalle-inmueble.php?idInmueble=" . $inmuebles['idInmueble'] . "&operacion=" . $inmuebles['idOperacion'] . "&propiedad=" . $inmuebles['idPropiedad'] . "' class='icon d-flex align-items-center justify-content-center btn-custom'>";
-    $listado .= "<span class='ion-ios-link'></span>";
+
+    $nombreOperacion = $inmuebles['nombreOperacion'];
+    $nombreLocalidad = $inmuebles['nombreLocalidad'];
+
+    $listado .= "<li>";
+    $listado .= "<article class='aa-properties-item'>";
+    $listado .= "<a href='detalle-inmueble.php?idInmueble=" . $inmuebles['idInmueble'] . "&operacion=" . $inmuebles['idOperacion'] . "&propiedad=" . $inmuebles['idPropiedad'] . "' class='aa-properties-item-img'>";
+    $listado .= "<img src='" . $nomimg . "' alt='img'>";
     $listado .= "</a>";
-    $listado .= "<div class='list-agent d-flex align-items-center'>";
-    $listado .= "<a class='agent-info d-flex align-items-center'>";
-    $listado .= "<div class='img-2 rounded-circle' style='background-image: url(images/img-logo/venta.png)'></div>";
-    $listado .= "<h3 class='mb-0 ml-2'>" . $nombreOperacion . "</h3>";
-    $listado .= "</a>";
+    $listado .= "<div class='aa-tag for-sale'>";
+    $listado .= $nombreOperacion;
+    $listado .= "</div>";
+    $listado .= "<div class='aa-properties-item-content'>";
+    $listado .= "<div class='aa-properties-info'>";
+    $listado .= "<span>" . $plantasInmueble . "</span>";
+    $listado .= "<span>" . $habitacionesInmueble . "</span>";
+    $listado .= "<span>" . $banosInmueble . "</span>";
+    $listado .= "<span>" . $superficieCubiertaInmueble . "</span>";
+    $listado .= "</div>";
+    $listado .= "<div class='aa-properties-about'>";
+    $listado .= "<h3><a href='detalle-inmueble.php?idInmueble=" . $inmuebles['idInmueble'] . "&operacion=" . $inmuebles['idOperacion'] . "&propiedad=" . $inmuebles['idPropiedad'] . "'>" .  $inmuebles['tituloInmueble'] . "</a></h3>";
+    $listado .= "<p>" . $inmuebles['estadoInmueble'] . ".</p>";
+    $listado .= "</div>";
+    $listado .= "<div class='aa-properties-detial'>";
+    $listado .= "<span class='aa-price'>";
+    $listado .= $valorInmueble;
+    $listado .= "</span>";
+    $listado .= "<a href='detalle-inmueble.php?idInmueble=" . $inmuebles['idInmueble'] . "&operacion=" . $inmuebles['idOperacion'] . "&propiedad=" . $inmuebles['idPropiedad'] . "' class='aa-secondary-btn'>Ver detalles</a>";
     $listado .= "</div>";
     $listado .= "</div>";
-    $listado .= "<div class='text'>";
-    $listado .= "<p class='price mb-3'>";
-    $listado .= "<span class='orig-price'>" . $valorInmueble . "<small></small></span>";
-    $listado .= "</p>";
-    $listado .= "<h3 class='mb-0'>";
-    $listado .= "<a href='detalle-inmueble.php?idInmueble=" . $inmuebles['idInmueble'] . "&operacion=" . $inmuebles['idOperacion'] . "&propiedad=" . $inmuebles['idPropiedad'] . "'>" .  $inmuebles['tituloInmueble'] . "</a>";
-    $listado .= "</h3>";
-    $listado .= "<span class='location d-inline-block mb-3'><i class='ion-ios-pin mr-2'></i>" . $domicilio . "</span>";
-    $listado .= "<ul class='property_list'>";
-    $listado .= "<li><span class='flaticon-bed'></span>" . $habitacionesInmueble . "</li>";
-    $listado .= "<li><span class='flaticon-bathtub'></span>" . $banosInmueble . "</li>";
-    $listado .= "<li><span class='flaticon-floor-plan'></span>" . $superficieCubiertaInmueble . " m2</li>";
-    $listado .= "</ul>";
-    $listado .= "</div>";
-    $listado .= "</div>";
-    $listado .= "</div>";
+    $listado .= "</article>";
+    $listado .= "</li>";
+
+    //     <li>
+    //     <article class="aa-properties-item">
+    //         <a href="detalle-inmueble.html" class="aa-properties-item-img">
+    //             <img src="img/img-portadas/lista1.jpeg" alt="img">
+    //         </a>
+    //         <div class="aa-tag for-sale">
+    //             Venta
+    //         </div>
+    //         <div class="aa-properties-item-content">
+    //             <div class="aa-properties-info">
+    //                 <span>5 Ambientes</span>
+    //                 <span>2 Habitaciones</span>
+    //                 <span>3 Baños</span>
+    //                 <span>172 m2</span>
+    //             </div>
+    //             <div class="aa-properties-about">
+    //                 <h3><a href="detalle-inmueble.html">Casa en Rivadavia</a></h3>
+    //                 <p>Casa con quinta en zona de Marquesado, ideal para vacacionar. Tiene pileta y quincho.</p>
+    //             </div>
+    //             <div class="aa-properties-detial">
+    //                 <span class="aa-price">
+    //                     USD 135.000
+    //                 </span>
+    //                 <a href="detalle-inmueble.html" class="aa-secondary-btn">Ver
+    //                     detalles</a>
+    //             </div>
+    //         </div>
+    //     </article>
+    // </li>
 }
