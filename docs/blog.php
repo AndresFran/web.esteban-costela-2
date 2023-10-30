@@ -1,3 +1,6 @@
+<?PHP
+include('php/list_categorias.php');
+?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -88,8 +91,7 @@
             <div class="container">
                 <div class="navbar-header">
                     <!-- FOR MOBILE VIEW COLLAPSED BUTTON -->
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
-                        aria-expanded="false" aria-controls="navbar">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
                         <span class="sr-only">Toggle navigation</span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
@@ -109,8 +111,7 @@
                         <li><a href="servicios.html">Servicios</a></li>
                         <li class="active"><a href="blog.html">Blog</a></li>
                         <li class="dropdown">
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="contacto.html">Contacto <span
-                                    class="caret"></span></a>
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="contacto.html">Contacto <span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
                                 <li><a href="contacto.html">Contacto Rápido</a></li>
                                 <li><a href="./e/index.php">Tarjeta de Presentación</a></li>
@@ -157,8 +158,7 @@
                                                 <div class="aa-blog-single-content">
                                                     <h2>Recomendaciones antes de alquilar</h2>
                                                     <div class="aa-blog-single-bottom">
-                                                        <a class="aa-blog-author" href="nosotros.html"><i
-                                                                class="fa fa-user"></i> Esteban Costela</a>
+                                                        <a class="aa-blog-author" href="nosotros.html"><i class="fa fa-user"></i> Esteban Costela</a>
                                                     </div>
                                                     <p>
                                                         Después de hacer una búsqueda intensiva por nuestra web, y que
@@ -170,14 +170,6 @@
                                                         matriculados, es la forma de garantizar que la operación llegue
                                                         a buen puerto.
                                                     </p>
-                                                    <blockquote>
-                                                        <p>Haznos saber todas las dudas que tengas, recuerda que es el
-                                                            lugar donde vas a vivir, desde el precio, la zona y si está
-                                                            disponible una visita previa al lugar. Ten en cuenta que
-                                                            siempre estaremos
-                                                            para ayudarte.</p>
-                                                        <!-- <cite>- Mr. josep</cite> -->
-                                                    </blockquote>
                                                     <p>
                                                         Asesorate con agentes matriculados al firmar el Contrato de
                                                         Alquiler, el mismo es un instrumento legal importante y debe ser
@@ -213,9 +205,7 @@
                                                         <div class="col-md-6 col-sm-6 ">
                                                             <article class="aa-blog-single ">
                                                                 <figure class="aa-blog-img ">
-                                                                    <a href="# "><img
-                                                                            src="img/img-servicios/servicios-documentos.png "
-                                                                            alt="img "></a>
+                                                                    <a href="# "><img src="img/img-servicios/servicios-documentos.png " alt="img "></a>
                                                                     <span class="aa-date-tag ">20 de Agosto de
                                                                         2023</span>
                                                                 </figure>
@@ -230,9 +220,7 @@
                                                                         entendible.
                                                                     </p>
                                                                     <div class="aa-blog-single-bottom ">
-                                                                        <a href="nosotros.html"
-                                                                            class="aa-blog-author "><i
-                                                                                class="fa fa-user "></i> Por Esteban
+                                                                        <a href="nosotros.html" class="aa-blog-author "><i class="fa fa-user "></i> Por Esteban
                                                                             Costela</a>
                                                                     </div>
                                                                 </div>
@@ -241,9 +229,7 @@
                                                         <div class="col-md-6 col-sm-6 ">
                                                             <article class="aa-blog-single ">
                                                                 <figure class="aa-blog-img ">
-                                                                    <a href="# "><img
-                                                                            src="img/img-servicios/servicios-marketing.png "
-                                                                            alt="img "></a>
+                                                                    <a href="# "><img src="img/img-servicios/servicios-marketing.png " alt="img "></a>
                                                                     <span class="aa-date-tag ">15 de Julio de
                                                                         2023</span>
                                                                 </figure>
@@ -256,9 +242,7 @@
                                                                         transacción.
                                                                     </p>
                                                                     <div class="aa-blog-single-bottom ">
-                                                                        <a href="nosotros.html"
-                                                                            class="aa-blog-author "><i
-                                                                                class="fa fa-user "></i> Por Esteban
+                                                                        <a href="nosotros.html" class="aa-blog-author "><i class="fa fa-user "></i> Por Esteban
                                                                             Costela</a>
                                                                     </div>
                                                                 </div>
@@ -290,15 +274,8 @@
                                     <div class="aa-blog-sidebar-single ">
                                         <h3>Categorías</h3>
                                         <ul class="aa-blog-catg ">
-                                            <li><a href="blog.html ">Propiedades</a> <span>14</span></li>
-                                            <li><a href="blog.html ">Alquiler</a> <span>14</span></li>
-                                            <li><a href="blog.html ">Venta</a> <span>13</span></li>
-                                            <li><a href="blog.html ">Leyes</a> <span>8</span></li>
-                                            <li><a href="blog.html ">Comercial</a> <span>8</span></li>
-                                            <li><a href="blog.html ">Recomendaciones</a> <span>7</span></li>
-                                            <li><a href="blog.html ">Noticias</a> <span>6</span></li>
-                                            <li><a href="blog.html ">Asesoría</a> <span>5</span></li>
-                                            <li><a href="blog.html ">Zonas</a> <span>3</span></li>
+                                            <!-- <li><a href="blog.html ">Propiedades</a> <span>14</span></li> -->
+                                            <?PHP echo $filtroCategorias; ?>
                                         </ul>
                                     </div>
 
@@ -309,8 +286,7 @@
                                             <div class="media ">
                                                 <div class="media-left ">
                                                     <a href="# ">
-                                                        <img alt="img " src="img/img-blog-reciente/ley-alquiler.jpeg "
-                                                            class="media-object ">
+                                                        <img alt="img " src="img/img-blog-reciente/ley-alquiler.jpeg " class="media-object ">
                                                     </a>
                                                 </div>
                                                 <div class="media-body ">
@@ -322,8 +298,7 @@
                                             <div class="media ">
                                                 <div class="media-left ">
                                                     <a href="# ">
-                                                        <img alt="img " src="img/img-blog-reciente/mascotas.jpeg "
-                                                            class="media-object ">
+                                                        <img alt="img " src="img/img-blog-reciente/mascotas.jpeg " class="media-object ">
                                                     </a>
                                                 </div>
                                                 <div class="media-body ">
@@ -335,8 +310,7 @@
                                             <div class="media ">
                                                 <div class="media-left ">
                                                     <a href="# ">
-                                                        <img alt="img " src="img/img-blog-reciente/cultivo.jpeg "
-                                                            class="media-object ">
+                                                        <img alt="img " src="img/img-blog-reciente/cultivo.jpeg " class="media-object ">
                                                     </a>
                                                 </div>
                                                 <div class="media-body ">
@@ -349,8 +323,7 @@
                                             <div class="media ">
                                                 <div class="media-left ">
                                                     <a href="# ">
-                                                        <img alt="img " src="img/img-blog-reciente/vecino.jpeg "
-                                                            class="media-object ">
+                                                        <img alt="img " src="img/img-blog-reciente/vecino.jpeg " class="media-object ">
                                                     </a>
                                                 </div>
                                                 <div class="media-body ">
@@ -362,9 +335,7 @@
                                             <div class="media ">
                                                 <div class="media-left ">
                                                     <a href="# ">
-                                                        <img alt="img "
-                                                            src="img/img-blog-reciente/matriculaciones.jpeg "
-                                                            class="media-object ">
+                                                        <img alt="img " src="img/img-blog-reciente/matriculaciones.jpeg " class="media-object ">
                                                     </a>
                                                 </div>
                                                 <div class="media-body ">
@@ -377,8 +348,7 @@
                                             <div class="media ">
                                                 <div class="media-left ">
                                                     <a href="# ">
-                                                        <img alt="img " src="img/img-blog-reciente/cursos.jpeg "
-                                                            class="media-object ">
+                                                        <img alt="img " src="img/img-blog-reciente/cursos.jpeg " class="media-object ">
                                                     </a>
                                                 </div>
                                                 <div class="media-body ">
@@ -421,12 +391,9 @@
                             </div>
                             <div class="col-md-2 col-sm-6 col-xs-12">
                                 <div class="aa-footer-middle">
-                                    <a href="https://www.facebook.com/Estebancostelapropiedades" target="_blank"><i
-                                            class="fa fa-facebook"></i></a>
-                                    <a href="https://www.instagram.com/esteban_costela/" target="_blank"><i
-                                            class="fa fa-instagram"></i></a>
-                                    <a href="https://www.youtube.com/@estebancostelapropiedades4439" target="_blank"><i
-                                            class="fa fa-youtube"></i></a>
+                                    <a href="https://www.facebook.com/Estebancostelapropiedades" target="_blank"><i class="fa fa-facebook"></i></a>
+                                    <a href="https://www.instagram.com/esteban_costela/" target="_blank"><i class="fa fa-instagram"></i></a>
+                                    <a href="https://www.youtube.com/@estebancostelapropiedades4439" target="_blank"><i class="fa fa-youtube"></i></a>
                                 </div>
                             </div>
                             <div class="col-md-6 col-sm-12 col-xs-12">
@@ -463,8 +430,7 @@
     <!-- Custom js -->
     <script src="js/custom.js "></script>
     <div id="fb-root "></div>
-    <script async defer crossorigin="anonymous " src="https://connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v18.0 "
-        nonce="txoN43wE "></script>
+    <script async defer crossorigin="anonymous " src="https://connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v18.0 " nonce="txoN43wE "></script>
 </body>
 
 </html>
