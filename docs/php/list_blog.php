@@ -31,8 +31,10 @@ while ($blog = mysqli_fetch_assoc($rtsblog)) {
     $queryimagen = "SELECT * FROM imagen WHERE idInmueble = '$blog[idInmueble]' AND baja != '1' ORDER BY ordenImagen ASC LIMIT 1";
     $rtsimagen = mysqli_query($conexion, $queryimagen);
     $img = mysqli_fetch_assoc($rtsimagen);
+
     $idimg = $img['idImagen'];
     $tpimg = $img['tipoImagen'];
+
     $nomimg = "gestion/assets/images/blog/" . str_pad($idimg, 8, "0", STR_PAD_LEFT) . "." . $tpimg;
 
     if (!file_exists($nomimg)) {
