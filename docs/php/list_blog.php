@@ -119,34 +119,4 @@ while ($blog = mysqli_fetch_assoc($rtsblog)) {
     $listado .= "</div>";
     $listado .= "</article>";
     $listado .= "</li>";
-
-    //     <li>
-    //     <article class="aa-properties-item">
-    //         <a href="detalle-inmueble.html" class="aa-properties-item-img">
-    //             <img src="img/img-portadas/lista1.jpeg" alt="img">
-    //         </a>
-    //         <div class="aa-tag for-sale">
-    //             Venta
-    //         </div>
-    //         <div class="aa-properties-item-content">
-    //             <div class="aa-properties-info">
-    //                 <span>5 Ambientes</span>
-    //                 <span>2 Habitaciones</span>
-    //                 <span>3 Baños</span>
-    //                 <span>172 m2</span>
-    //             </div>
-    //             <div class="aa-properties-about">
-    //                 <h3><a href="detalle-inmueble.html">Casa en Rivadavia</a></h3>
-    //                 <p>Casa con quinta en zona de Marquesado, ideal para vacacionar. Tiene pileta y quincho.</p>
-    //             </div>
-    //             <div class="aa-properties-detial">
-    //                 <span class="aa-price">
-    //                     USD 135.000
-    //                 </span>
-    //                 <a href="detalle-inmueble.html" class="aa-secondary-btn">Ver
-    //                     detalles</a>
-    //             </div>
-    //         </div>
-    //     </article>
-    // </li>
 }
