@@ -35,6 +35,12 @@ while ($blog = mysqli_fetch_assoc($rtsblog)) {
     $idimg = $img['idImagen'];
     $tpimg = $img['tipoImagen'];
 
+    //Nombre del Mes
+    $monthNum = date("m", strtotime($blog['fecha']));
+    $dateObj   = DateTime::createFromFormat('!m', $monthNum);
+    $monthName = $dateObj->format('F'); // March
+    //echo $monthName;
+
     $nomimg = "gestion/assets/images/blog/" . str_pad($idimg, 8, "0", STR_PAD_LEFT) . "." . $tpimg;
 
     if (!file_exists($nomimg)) {
