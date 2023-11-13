@@ -220,7 +220,7 @@ include('php/list_inmuebles_ultimos.php');
                                     <input type="text" placeholder="Buscar">
                                 </div>
                                 <div class="aa-single-advance-search">
-                                    <select id="" name="">
+                                    <select name="propiedad">
                                         <option value="0" selected>Propiedad</option>
                                         <?PHP while ($propiedad = mysqli_fetch_assoc($rtspropiedad)) { ?>
                                             <option value="<?PHP echo $propiedad['idPropiedad']; ?>"> <?PHP echo $propiedad['nombrePropiedad']; ?></option>
@@ -228,7 +228,7 @@ include('php/list_inmuebles_ultimos.php');
                                     </select>
                                 </div>
                                 <div class="aa-single-advance-search">
-                                    <select id="" name="">
+                                    <select name="operacion">
                                         <option value="0" selected>Operación</option>
                                         <?PHP while ($operacion = mysqli_fetch_assoc($rtsoperacion)) { ?>
                                             <option value="<?PHP echo $operacion['idOperacion']; ?>"> <?PHP echo $operacion['nombreOperacion']; ?></option>
@@ -236,7 +236,7 @@ include('php/list_inmuebles_ultimos.php');
                                     </select>
                                 </div>
                                 <div class="aa-single-advance-search">
-                                    <select id="" name="">
+                                    <select name="localidad">
                                         <option value="0" selected>Localidad</option>
                                         <?PHP while ($localidad = mysqli_fetch_assoc($rtslocalidad)) { ?>
                                             <option value="<?PHP echo $localidad['idLocalidad']; ?>"> <?PHP echo $localidad['nombreLocalidad']; ?></option>

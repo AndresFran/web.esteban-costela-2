@@ -199,7 +199,7 @@ include('php/list_inmuebles_index.php');
                                 </div>
                                 <div class="col-md-2">
                                     <div class="aa-single-advance-search">
-                                        <select>
+                                        <select name="localidad">
                                             <option value="" selected>Localidad</option>
                                             <?PHP while ($localidad = mysqli_fetch_assoc($rtslocalidad)) { ?>
                                                 <option value="<?PHP echo $localidad['idLocalidad']; ?>"> <?PHP echo $localidad['nombreLocalidad']; ?></option>
@@ -207,7 +207,7 @@ include('php/list_inmuebles_index.php');
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col-md-2" name="localidad">
+                                <div class="col-md-2">
                                     <div class="aa-single-advance-search">
                                         <input class="aa-search-btn" type="submit" value="Buscar">
                                     </div>

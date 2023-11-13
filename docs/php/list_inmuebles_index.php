@@ -94,6 +94,7 @@ while ($inmuebles = mysqli_fetch_assoc($rtsinmuebles)) {
         $domicilio .= " - " . $inmuebles['nombreLocalidad'] . "</b>";
     }
 
+    $nombrePropiedad = $inmuebles['nombrePropiedad'];
     $nombreOperacion = $inmuebles['nombreOperacion'];
     $nombreLocalidad = $inmuebles['nombreLocalidad'];
 
@@ -114,7 +115,7 @@ while ($inmuebles = mysqli_fetch_assoc($rtsinmuebles)) {
     $listado .= "</div>";
     $listado .= "<div class='aa-properties-about'>";
     $listado .= "<h3><a href='detalle-inmueble.php?idInmueble=" . $inmuebles['idInmueble'] . "&operacion=" . $inmuebles['idOperacion'] . "&propiedad=" . $inmuebles['idPropiedad'] . "'>" .  $inmuebles['tituloInmueble'] . "</a></h3>";
-    $listado .= "<p>" . $inmuebles['estadoInmueble'] . ".</p>";
+    $listado .= "<p>" . $nombrePropiedad . " | " . $nombreLocalidad . ".</p>";
     $listado .= "</div>";
     $listado .= "<div class='aa-properties-detial'>";
     $listado .= "<span class='aa-price'>";
