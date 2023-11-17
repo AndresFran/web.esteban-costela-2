@@ -146,7 +146,7 @@ if (!file_exists($nomimg)) {
     while ($imagenes = mysqli_fetch_assoc($rtsimagenes)) {
         $imagen = "/gestion/assets/images/inmuebles/" . str_pad($imagenes['idImagen'], 8, "0", STR_PAD_LEFT) . "." . $imagenes['tipoImagen'];
         //$listadoImg .= "<img src='" . $imagen . "' alt='" . $imagenes['idImagen'] . "'>";
-        $listadoImg .= "<img src='" . $imagen . "' alt='img' onclick='openFullscreen('" . $imagen . "')'>";
+        $listadoImg .= "<img src='" . $imagen . "' alt='img' onclick='openFullscreen('" . $imagen . " width='640' ')'>";
         //<img src="img/img-detalle/1.jpeg" alt="img" onclick="openFullscreen('img/img-detalle/1.jpeg')">
     }
 }
